@@ -1,0 +1,96 @@
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: radial-gradient(circle at center, #001f3f, #001233, #000a1a, #00010a);
+    overflow: hidden;
+    position: relative;
+}
+.stars, .shooting-stars, .parallax-stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.star, .parallax-star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0;
+    animation: twinkle 3s infinite alternate ease-in-out;
+}
+.star:nth-child(odd), .parallax-star:nth-child(odd) { animation-duration: 2s; }
+.star:nth-child(even), .parallax-star:nth-child(even) { animation-duration: 3.5s; }
+.parallax-star {
+    transform: scale(1.5);
+    opacity: 0.8;
+}
+.aurora {
+    position: absolute;
+    width: 100%;
+    height: 50vh;
+    top: 10vh;
+    background: linear-gradient(120deg, rgba(0, 255, 150, 0.3), rgba(0, 120, 255, 0.2), transparent);
+    opacity: 0.5;
+    filter: blur(30px);
+    animation: auroraFlow 6s infinite alternate ease-in-out;
+}
+.shooting-star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 6px white;
+    opacity: 0;
+    animation: shooting 5s infinite;
+}
+.moon-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+.moon {
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #e0e0e0, #a8a8a8, #7a7a7a);
+    border-radius: 50%;
+    box-shadow: 0 0 60px rgba(255, 255, 255, 0.9);
+    position: relative;
+    transition: filter 1s ease-in-out;
+}
+.shadow {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(0, 0, 0, 1), transparent);
+    border-radius: 50%;
+    top: 0;
+    left: -200px;
+    animation: eclipse 8s infinite ease-in-out;
+}
+
+@keyframes eclipse {
+    0% { left: -200px; opacity: 1; }
+    50% { left: 0; opacity: 1; }
+    100% { left: 200px; opacity: 1; }
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.1; transform: scale(1); }
+    100% { opacity: 1; transform: scale(1.3); }
+}
+
+@keyframes auroraFlow {
+    0% { transform: translateX(-20px); }
+    100% { transform: translateX(20px); }
+}
+
+@keyframes shooting {
+    0% { opacity: 0; transform: translateX(0) translateY(0); }
+    10% { opacity: 1; }
+    100% { opacity: 0; transform: translateX(-200px) translateY(200px); }
+}

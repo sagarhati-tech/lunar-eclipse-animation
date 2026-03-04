@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lunar Eclipse Animation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="stars">
+        <script>
+            const starsContainer = document.querySelector('.stars');
+            for (let i = 0; i < 50; i++) {
+                let star = document.createElement('div');
+                star.classList.add('star');
+                star.style.top = Math.random() * 100 + 'vh';
+                star.style.left = Math.random() * 100 + 'vw';
+                starsContainer.appendChild(star);
+            }
+        </script>
+    </div>
+    <div class="parallax-stars">
+        <script>
+            const parallaxStarsContainer = document.querySelector('.parallax-stars');
+            for (let i = 0; i < 30; i++) {
+                let star = document.createElement('div');
+                star.classList.add('parallax-star');
+                star.style.top = Math.random() * 100 + 'vh';
+                star.style.left = Math.random() * 100 + 'vw';
+                parallaxStarsContainer.appendChild(star);
+            }
+        </script>
+    </div>
+    <div class="shooting-stars">
+        <script>
+            const shootingStarsContainer = document.querySelector('.shooting-stars');
+            for (let i = 0; i < 5; i++) {
+                let shootingStar = document.createElement('div');
+                shootingStar.classList.add('shooting-star');
+                shootingStar.style.top = Math.random() * 80 + 'vh';
+                shootingStar.style.left = Math.random() * 100 + 'vw';
+                shootingStar.style.animationDelay = Math.random() * 5 + 's';
+                shootingStarsContainer.appendChild(shootingStar);
+            }
+        </script>
+    </div>
+    <div class="aurora"></div>
+    <div class="moon-container">
+        <div class="moon"></div>
+        <div class="shadow"></div>
+    </div>
+    <script>
+        const shadow + document.querySelector('.shadow');
+        const moon = document.querySelector('.moon');
+        shadow.addEventListener('animationend', () => {
+            moon.style.filter = 'brightness(0.5)';
+            setTimeout(() => { moon.style.filter = 'brightness(1)'; }, 4000);
+        });
+    </script>
+</body>
+</html>
